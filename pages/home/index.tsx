@@ -3,7 +3,6 @@ import { MainContent } from "@components/home/MainContent";
 import { RightSidebar } from "@components/home/RightSidebar";
 import { LoadingScreen } from "@components/ui/LoadingScreen";
 import { hasSession } from "@lib/helpers/hasSession";
-import { useRecentPostsQuery } from "@lib/store/api/postApi";
 import { useGetUserQuery } from "@lib/store/api/userApi";
 import Head from "next/head";
 
