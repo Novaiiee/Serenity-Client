@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 export function getServerSideProps({ req }: any) {
 	const authType = Cookies.get("authType");
-	return hasSession(req, `/auth/${authType}?error=true`, "/home");
+	return hasSession(req, `/auth/register/${authType}?error=true`, "/home");
 }
 
 export default function Redirect() {
