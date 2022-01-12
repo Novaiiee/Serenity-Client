@@ -9,17 +9,21 @@ interface AuthOptionsProps {
 export const AuthOptions: FC<AuthOptionsProps> = ({ error, type }) => {
 	return (
 		<div className="flex flex-col justify-center space-y-10">
-			<AuthProviderButton provider="Google" type={type} link="http://localhost:8000/auth/google" />
+			<AuthProviderButton
+				provider="Google"
+				type={type}
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/google`}
+			/>
 			<AuthProviderButton
 				provider="Github"
 				type={type}
-				link="http://localhost:8000/auth/github"
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/github`}
 				className="bg-black text-white"
 			/>
 			<AuthProviderButton
 				provider="Discord"
 				type={type}
-				link="http://localhost:8000/auth/discord"
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/discord`}
 				className="bg-blue-600 text-white"
 			/>
 		</div>
