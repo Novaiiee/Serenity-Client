@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+	font-family: "Poppins", "Inter", sans-serif;
+}
+
+.grayscale-image {
+	filter: grayscale(100%);
+}
+
+.home {
+	overflow-x: hidden;
+}
+
+.tags::-webkit-scrollbar {
+	height: 8px;
+}
+
+.tags::-webkit-scrollbar-track {
+	background: transparent; /* color of the tracking area */
+}
+
+.tags::-webkit-scrollbar-thumb {
+	background-color: grey; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+.tags::-webkit-scrollbar-button {
+	background-color: lightgrey;
+	border-radius: 20px;
+	background-clip: padding-box;
+	width: 0px;
+}
+
+.tags {
+	overflow-x: hidden;
+	padding-bottom: 8px;
+}
+
+.tags:hover,
+.tags:active,
+.tags:focus {
+	overflow-x: auto;
+	padding-bottom: 0px;
+}
+
+.comments-button {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	cursor: pointer;
+}
+
+.form-menu-selection {
+	@apply text-white p-4 h-12 w-12 flex items-center justify-center rounded-md;
+}
+
+.input {
+	@apply outline-none w-full flex items-center space-x-4 bg-gray-200 text-black p-4 rounded-lg transition duration-100 ease-in focus:ring-2 focus:ring-blue-400;
+}
+
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main-content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
