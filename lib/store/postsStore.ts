@@ -1,3 +1,5 @@
+import { Post } from "@lib/types";
+import { client } from "@pages/_app";
 import create from "zustand";
 
 interface PostsStore {
@@ -10,12 +12,12 @@ interface PostsStore {
 	resetTagAndQuery: () => void;
 }
 
-export const usePostsStore = create<PostsStore>((set) => ({
+export const usePostsStore = create<PostsStore>((set, get) => ({
 	query: "",
 	tag: "",
 	page: 1,
-	setTag: (tag: string) => set({ tag }),
-	setQuery: (query: string) => set({ query }),
+	setTag: (tag: string) => set({ tag , query: ""}),
+	setQuery: (query: string) => set({ query, tag: "" }),
 	setPage: (page: number) => {
 		if (page < 1) {
 			return set({ page: 1 });

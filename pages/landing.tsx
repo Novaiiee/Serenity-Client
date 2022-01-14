@@ -1,3 +1,4 @@
+import { Navbar } from "@components/ui/Navbar";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -22,9 +23,7 @@ export default function Landing() {
 				<title>Serenity</title>
 			</Head>
 			<div>
-				<h1>Landing</h1>
-				<Link href="/auth/register">Register</Link>
-				<Link href="/auth/login">Login</Link>
+				<Navbar />
 			</div>
 		</>
 	);

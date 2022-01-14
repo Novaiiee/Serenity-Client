@@ -15,5 +15,5 @@ export function useMyPostsQuery(initialData?: Post[]) {
 }
 
 export function useCreatePostMutation() {
-	return useMutation("my-posts", fetchCreatePost);
+	return useMutation(fetchCreatePost);
 }

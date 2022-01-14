@@ -12,18 +12,18 @@ export const AuthOptions: FC<AuthOptionsProps> = ({ error, type }) => {
 			<AuthProviderButton
 				provider="Google"
 				type={type}
-				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/google`}
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/google`}
 			/>
 			<AuthProviderButton
 				provider="Github"
 				type={type}
-				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/github`}
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/github`}
 				className="bg-black text-white"
 			/>
 			<AuthProviderButton
 				provider="Discord"
 				type={type}
-				link={`${process.env.NEXT_PUBLIC_SERVER_URL}auth/discord`}
+				link={`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/discord`}
 				className="bg-blue-600 text-white"
 			/>
 		</div>

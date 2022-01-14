@@ -4,16 +4,22 @@ import { RightSidebar } from "@components/home/RightSidebar";
 import { LoadingScreen } from "@components/ui/LoadingScreen";
 import { hasSession } from "@lib/helpers/hasSession";
 import { useUserQuery } from "@lib/hooks/userHooks";
+import Cookies from "js-cookie";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export async function getServerSideProps({ req }: any) {
-	return hasSession(req, "/user/complete");
+	return hasSession(req, "/landing");
 }
 
 export default function Home() {
 	const { isLoading: isLoadingUser } = useUserQuery();
 
-	const isLoading =  isLoadingUser;
+	useEffect(() => {
+		Cookies.set("authType", "none");
+	}, []);
+
+	const isLoading = isLoadingUser;
 	if (isLoading) return <LoadingScreen />;
 
 	return (

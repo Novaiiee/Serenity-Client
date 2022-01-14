@@ -58,11 +58,11 @@ export const MainContent: FC = () => {
 					})}
 
 				<div className="flex space-x-4">
-					<Button color="violet-500" onClick={() => setPage(page + 1)}>
-						Next
-					</Button>
 					<Button color="violet-500" onClick={() => setPage(page - 1)}>
 						Back
+					</Button>
+					<Button color="violet-500" onClick={() => setPage(page + 1)}>
+						Next
 					</Button>
 				</div>
 			</div>
