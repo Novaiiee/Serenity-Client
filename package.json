@@ -13,7 +13,6 @@
 		"@headlessui/react": "^1.4.2",
 		"@heroicons/react": "^1.0.5",
 		"@hookform/resolvers": "^2.8.5",
-		"@reduxjs/toolkit": "^1.7.1",
 		"@storybook/addon-postcss": "^2.0.0",
 		"@tailwindcss/custom-forms": "^0.2.1",
 		"@types/js-cookie": "^3.0.1",
@@ -32,12 +31,12 @@
 		"react-feather": "^2.0.9",
 		"react-hook-form": "^7.22.5",
 		"react-icons": "^4.3.1",
-		"react-infinite-scroll-component": "^6.1.0",
-		"react-redux": "^7.2.6",
+		"react-query": "^3.34.8",
 		"react-spinners": "^0.11.0",
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat",
 		"typescript": "^4.5.3",
-		"yup": "^0.32.11"
+		"yup": "^0.32.11",
+		"zustand": "^3.6.9"
 	},
 	"devDependencies": {
 		"@storybook/addon-actions": "^6.4.9",

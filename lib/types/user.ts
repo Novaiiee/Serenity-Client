@@ -24,3 +24,5 @@ export interface UserProfileDTO {
 	followedTags: string[];
 	socials: Socials;
 }
+
+export interface BasicUser extends Pick<User, "userID" | "username"> {}

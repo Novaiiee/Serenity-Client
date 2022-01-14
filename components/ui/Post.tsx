@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { AnnotationIcon, DotsHorizontalIcon } from "@heroicons/react/solid";
-import { useGetUserQuery } from "@lib/store/api/userApi";
+import { useUserQuery } from "@lib/hooks/userHooks";
 import { Post as PostType } from "@lib/types";
 import Link from "next/link";
 import { FC } from "react";
@@ -12,7 +12,7 @@ export interface PostProps {
 }
 
 export const Post: FC<PostProps> = ({ className, post }) => {
-	const { data: user } = useGetUserQuery();
+	const { data: user } = useUserQuery();
 
 	const { comments, content, createdAt, name, avatar, tags, userID, username } = post;
 

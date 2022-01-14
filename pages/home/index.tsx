@@ -3,7 +3,7 @@ import { MainContent } from "@components/home/MainContent";
 import { RightSidebar } from "@components/home/RightSidebar";
 import { LoadingScreen } from "@components/ui/LoadingScreen";
 import { hasSession } from "@lib/helpers/hasSession";
-import { useGetUserQuery } from "@lib/store/api/userApi";
+import { useUserQuery } from "@lib/hooks/userHooks";
 import Head from "next/head";
 
 export async function getServerSideProps({ req }: any) {
@@ -11,7 +11,7 @@ export async function getServerSideProps({ req }: any) {
 }
 
 export default function Home() {
-	const { isLoading: isLoadingUser } = useGetUserQuery();
+	const { isLoading: isLoadingUser } = useUserQuery();
 
 	const isLoading =  isLoadingUser;
 	if (isLoading) return <LoadingScreen />;

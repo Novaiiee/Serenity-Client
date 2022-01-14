@@ -1,14 +1,16 @@
 import { ArchiveIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/solid";
-import { useGetUserQuery } from "@lib/store/api/userApi";
-import { useAppDispatch } from "@lib/store/globalStore";
-import { resetTagAndQuery, setPage, setTag } from "@lib/store/slices/postSlice";
+import { useUserQuery } from "@lib/hooks/userHooks";
+import { usePostsStore } from "@lib/store/postsStore";
 import Link from "next/link";
 import { FC } from "react";
 import { Logo } from "../ui/Logo";
 
 export const LeftSidebar: FC = () => {
-	const { data: user } = useGetUserQuery();
-	const dispatch = useAppDispatch();
+	const { data: user } = useUserQuery();
+
+	const resetTagAndQuery = usePostsStore((state) => state.resetTagAndQuery);
+	const setPage = usePostsStore((state) => state.setPage);
+	const setTag = usePostsStore((state) => state.setTag);
 
 	return (
 		<div className="col-span-2 h-screen p-14 overflow-hidden">
@@ -18,7 +20,7 @@ export const LeftSidebar: FC = () => {
 					<div className="flex space-x-4 items-center">
 						<HomeIcon height={30} />
 						<Link href="/home">
-							<a onClick={() => dispatch(resetTagAndQuery())} className="font-semibold">
+							<a onClick={() => resetTagAndQuery()} className="font-semibold">
 								Home
 							</a>
 						</Link>
@@ -45,8 +47,8 @@ export const LeftSidebar: FC = () => {
 							return (
 								<button
 									onClick={() => {
-										dispatch(setPage(1));
-										dispatch(setTag(tag));
+										setPage(1);
+										setTag(tag);
 									}}
 									key={tag}
 								>

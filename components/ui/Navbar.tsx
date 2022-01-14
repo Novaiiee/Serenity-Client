@@ -1,4 +1,4 @@
-import { useGetUserQuery } from "@lib/store/api/userApi";
+import { useUserQuery } from "@lib/hooks/userHooks";
 import Link from "next/link";
 import { FC } from "react";
 import { Logo } from "./Logo";
@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 export interface NavbarProps {}
 
 export const Navbar: FC<NavbarProps> = ({}) => {
-	const { data: user } = useGetUserQuery();
+	const { data: user } = useUserQuery();
 
 	return (
 		<div className="flex justify-between items-center bg-gray-200 px-10 py-6 h-10vh">

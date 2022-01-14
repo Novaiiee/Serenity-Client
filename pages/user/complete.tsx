@@ -1,8 +1,13 @@
-import { useCompleteRegistrationMutation } from "@lib/store/api/userApi";
+import { useCompleteRegistrationMutation } from "@lib/hooks/userHooks";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function CompleteRegistration() {
-	const [mutate] = useCompleteRegistrationMutation();
+	const router = useRouter();
+
+	const { mutate } = useCompleteRegistrationMutation(() => {
+		router.push("/home");
+	});
 
 	return (
 		<>

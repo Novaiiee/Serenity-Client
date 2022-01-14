@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import { useGetFriendsBasicQuery } from "@lib/store/api/friendApi";
-import { useGetUserQuery } from "@lib/store/api/userApi";
+import { useFriendsBasicQuery } from "@lib/hooks/friendHooks";
+import { useUserQuery } from "@lib/hooks/userHooks";
 import Link from "next/link";
 import { FC } from "react";
 import { Dropdown } from "../ui/Dropdown";
 
 export const RightSidebar: FC = () => {
-	const { data: user } = useGetUserQuery();
-	const { data: friends } = useGetFriendsBasicQuery();
+	const { data: user } = useUserQuery();
+	const { data: friends } = useFriendsBasicQuery();
 
 	return (
 		<div className="col-span-2 h-screen p-14 overflow-hidden">

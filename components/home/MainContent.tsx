@@ -1,28 +1,24 @@
 import { Button } from "@components/ui/Button";
 import { Post } from "@components/ui/Post";
 import { SearchBar } from "@components/ui/SearchBar";
-import { useGetPostsQuery } from "@lib/store/api/postApi";
-import { useAppDispatch, useAppSelector } from "@lib/store/globalStore";
-import { setPage, setQuery } from "@lib/store/slices/postSlice";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { usePostsQuery } from "@lib/hooks/postHooks";
+import { usePostsStore } from "@lib/store/postsStore";
+import { ChangeEvent, FC } from "react";
 
 export const MainContent: FC = () => {
-	const dispatch = useAppDispatch();
+	const tag = usePostsStore((state) => state.tag);
+	const query = usePostsStore((state) => state.query);
+	const page = usePostsStore((state) => state.page);
 
-	const query = useAppSelector((state) => state.posts.query);
-	const page = useAppSelector((state) => state.posts.page);
-	const tag = useAppSelector((state) => state.posts.tag);
+	const setPage = usePostsStore((state) => state.setPage);
+	const setQuery = usePostsStore((state) => state.setQuery);
 
-	const { data: paginate, isLoading, refetch } = useGetPostsQuery({ limit: 10, page, query, tag });
+	const { data: paginate, isLoading, refetch } = usePostsQuery({ limit: 10, page, query, tag });
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		dispatch(setPage(1))
-		dispatch(setQuery(e.target.value));
+		setPage(1);
+		setQuery(e.target.value);
 	};
-
-	useEffect(() => {
-		console.log(paginate)
-	}, [paginate]);
 
 	return (
 		<div className="col-span-8 h-screen main-content bg-gray-100 p-20 overflow-auto flex flex-col items-start">
@@ -62,10 +58,10 @@ export const MainContent: FC = () => {
 					})}
 
 				<div className="flex space-x-4">
-					<Button color="violet-500" onClick={() => dispatch(setPage(page + 1))}>
+					<Button color="violet-500" onClick={() => setPage(page + 1)}>
 						Next
 					</Button>
-					<Button color="violet-500" onClick={() => dispatch(setPage(page - 1))}>
+					<Button color="violet-500" onClick={() => setPage(page - 1)}>
 						Back
 					</Button>
 				</div>

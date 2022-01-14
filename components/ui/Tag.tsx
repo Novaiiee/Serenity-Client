@@ -1,4 +1,4 @@
-import { useGetUserQuery } from "@lib/store/api/userApi";
+import { useUserQuery } from "@lib/hooks/userHooks";
 import { FC } from "react";
 
 export interface TagProps {
@@ -8,7 +8,7 @@ export interface TagProps {
 }
 
 export const Tag: FC<TagProps> = ({ color, text, userID }) => {
-	const { data: user } = useGetUserQuery();
+	const { data: user } = useUserQuery();
 
 	return (
 		<div className={`bg-${color} text-white py-2 px-4 flex space-x-4 rounded-md min-w-max m-0`}>
