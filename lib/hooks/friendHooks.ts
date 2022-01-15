@@ -1,4 +1,4 @@
-import { fetchAddFriend, fetchFriendsBasic, fetchIsYourFriend } from "@lib/helpers/axiosApi";
+import { fetchAddFriend, fetchFriendsBasic, fetchIsYourFriend } from "@lib/helpers/api";
 import { BasicFriend, BasicUser } from "@lib/types";
 import { useMutation, useQuery } from "react-query";
 

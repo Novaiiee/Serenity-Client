@@ -1,19 +1,30 @@
 import { AuthOptions } from "@components/auth/AuthForm";
 import { Error } from "@components/auth/Error";
 import { Navbar } from "@components/ui/Navbar";
+import { fetchUserWithCookie } from "@lib/helpers/fetchUserWithCookie";
 import Head from "next/head";
 import Link from "next/link";
 
-export function getServerSideProps({ query, req }: any) {
+export async function getServerSideProps({ query, req }: any) {
 	const error = query.error;
-	const session = req.cookies["uid"];
+	const user = await fetchUserWithCookie(req);
 
-	if (session) {
+	if (user && user.completed) {
 		return {
-			redirect: { permanent: false, destination: "/home" },
+			redirect: {
+				permanent: false,
+				destination: "/home",
+			},
+		};
+	} else if (user && !user.completed) {
+		return {
+			redirect: {
+				permanent: false,
+				destination: "/user/complete",
+			},
 		};
 	}
-	
+
 	return {
 		props: {
 			error: error ?? "",

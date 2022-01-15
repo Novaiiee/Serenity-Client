@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import "../styles/globals.css";
 
 export const client = new QueryClient();
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
 			<div className="font-poppins">
 				<Component {...pageProps} />
 			</div>
+			<ReactQueryDevtools />
 		</QueryClientProvider>
 	);
 }

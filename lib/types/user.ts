@@ -12,7 +12,7 @@ export interface User {
 	completed: boolean;
 }
 
-interface Socials {
+export interface Socials {
 	discord: string;
 	instagram: string;
 }

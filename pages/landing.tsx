@@ -1,13 +1,21 @@
 import { Navbar } from "@components/ui/Navbar";
+import { fetchUserWithCookie } from "@lib/helpers/fetchUserWithCookie";
 import Head from "next/head";
-import Link from "next/link";
 
-export function getServerSideProps({ req }: any) {
-	const session = req.cookies["uid"];
+export async function getServerSideProps(ctx: any) {
+	const user = await fetchUserWithCookie(ctx.req);
 
-	if (session) {
+	if (user && user.completed) {
 		return {
-			redirect: { permanent: false, destination: "/home" },
+			redirect: {
+				destination: "/home",
+			},
+		};
+	} else if (user && !user.completed) {
+		return {
+			redirect: {
+				destination: "/user/complete",
+			},
 		};
 	}
 

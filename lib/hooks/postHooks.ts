@@ -1,4 +1,4 @@
-import { fetchCreatePost, fetchMyPosts, fetchPosts, fetchUserPosts } from "@lib/helpers/axiosApi";
+import { fetchCreatePost, fetchMyPosts, fetchPosts, fetchUserPosts } from "@lib/helpers/api";
 import { Post, PostPaginate, PostPaginateQuery } from "@lib/types";
 import { useMutation, useQuery } from "react-query";
 

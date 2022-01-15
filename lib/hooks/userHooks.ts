@@ -3,7 +3,7 @@ import {
 	fetchUpdateUser,
 	fetchUser,
 	fetchUserProfile,
-} from "@lib/helpers/axiosApi";
+} from "@lib/helpers/api";
 import { User, UserProfileDTO } from "@lib/types";
 import { client } from "@pages/_app";
 import { useMutation, useQuery } from "react-query";

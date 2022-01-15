@@ -23,7 +23,6 @@ export const AuthProviderButton: FC<AuthProviderButtonProps> = ({ type, provider
 	icons.set("Google", <FcGoogle size={50} />);
 
 	const redirect = () => {
-		Cookies.set("authType", type);
 		router.push(link);
 	};
 

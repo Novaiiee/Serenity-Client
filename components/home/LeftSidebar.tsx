@@ -41,7 +41,7 @@ export const LeftSidebar: FC = () => {
 				<div className="flex flex-col pt-6">
 					<h1 className="font-bold text-xl pb-5">Followed Tags</h1>
 					<div className="flex flex-col space-y-3 items-start">
-						{user?.followedTags.map((tag, i) => {
+						{user?.followedTags?.map((tag, i) => {
 							if (i > 10) return null;
 
 							return (
@@ -58,7 +58,7 @@ export const LeftSidebar: FC = () => {
 						})}
 					</div>
 					<button className="font-medium text-purple-500 text-left pt-5">
-						View all ({user?.followedTags.length})
+						View all ({user?.followedTags?.length})
 					</button>
 				</div>
 			</div>
